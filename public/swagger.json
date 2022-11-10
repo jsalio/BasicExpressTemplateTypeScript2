@@ -1,0 +1,123 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"ApiResponse_any_": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"dataSet": {},
+					"statusCode": {
+						"type": "number",
+						"format": "double"
+					},
+					"status": {
+						"type": "boolean"
+					},
+					"error": {
+						"type": "string"
+					},
+					"errors": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ApiResponse_Array_string__": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"dataSet": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"statusCode": {
+						"type": "number",
+						"format": "double"
+					},
+					"status": {
+						"type": "boolean"
+					},
+					"error": {
+						"type": "string"
+					},
+					"errors": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "basic-template-typescript",
+		"version": "1.0.0",
+		"description": "Basic template express app for typeScript",
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/api/Home": {
+			"get": {
+				"operationId": "Index",
+				"responses": {
+					"200": {
+						"description": "The response.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ApiResponse_any_"
+								}
+							}
+						}
+					}
+				},
+				"description": "This is a test method",
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/api/Home/list": {
+			"get": {
+				"operationId": "ListWord",
+				"responses": {
+					"200": {
+						"description": "The List of words.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ApiResponse_Array_string__"
+								}
+							}
+						}
+					}
+				},
+				"description": "This is a test method",
+				"security": [],
+				"parameters": []
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
